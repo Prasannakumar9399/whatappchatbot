@@ -57,7 +57,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                    url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
                    data:{
                     "messaging_product": "whatsapp",
-                    "to": "919004300219",
+                    "to": from,
                     "type": "template",
                     "template": {
                         "name": "catalog",
