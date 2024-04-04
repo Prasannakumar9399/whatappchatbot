@@ -60,7 +60,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                     "to": from,
                     "type": "template",
                     "template": {
-                        "name": "catalog",
+                        "name": "welcome1",
                         "language": {
                             "code": "en_US"
                         }
