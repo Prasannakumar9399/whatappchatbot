@@ -58,7 +58,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                    data:{
                     "messaging_product": "whatsapp",
                     "to": from,
-                    "type": "template",
+                    "type": "products",
                     "template": {
                         "name": "catalog",
                         "language": {
