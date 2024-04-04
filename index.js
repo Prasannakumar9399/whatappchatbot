@@ -55,17 +55,48 @@ app.post("/webhook",(req,res)=>{ //i want some
                axios({
                    method:"POST",
                    url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-                   data:{
+                   data:
+                   {
                     "messaging_product": "whatsapp",
-                    "to": from,
-                    "type": "template",
-                    "template": {
-                        "name": "products",
-                        "language": {
-                            "code": "en_US"
+                      "recipient_type": "individual",
+                      "to": "919004300219",
+                      "type": "interactive",
+                      "interactive": {
+                        "type": "product_list",
+                        "header":{
+                          "type": "text",
+                          "text": "Catalogue"
+                        },
+                        "body": {
+                          "text": "Welcome to your restaurant .Order now and Enjoy !!"
+                        },
+                        "footer": {
+                          "text": "FoodWithFun"
+                        },
+                        "action": {
+                          "catalog_id": "790425562974971",
+                          "sections": [
+                            {
+                              "title": "Veg",
+                              "product_items": [
+                                { "product_retailer_id": "gmwcoxaqbq" },
+                                { "product_retailer_id": "hl5chc29ni" },
+                                { "product_retailer_id":"834nmhc71v"}
+                               
+                   
+                              ]
+                            },
+                            {
+                              "title": "Non-Veg",
+                              "product_items": [
+                                { "product_retailer_id": "c233nzskgi" }
+                             
+                              ]
+                            }
+                          ]
                         }
-                    }
-                },
+                      }
+                   },
                    headers:{
                        "Content-Type":"application/json"
                    }
