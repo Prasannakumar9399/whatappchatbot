@@ -32,7 +32,7 @@ app.get("/webhook",(req,res)=>{
 
 });
 
-app.post("/webhook",(req,res)=>{ //i want some 
+app.post("/webhook",async (req,res)=>{ //i want some 
 console.log(req);
     let body_param=req.body;
 
@@ -67,57 +67,64 @@ console.log(req);
               //  }
 
             if(message_type == "text"){
-            
-              axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-                data:
-                {
-                 "messaging_product": "whatsapp",
-                   "recipient_type": "individual",
-                   "to": from,
-                   "type": "interactive",
-                   "interactive": {
-                     "type": "product_list",
-                     "header":{
-                       "type": "text",
-                       "text": "Catalogue"
-                     },
-                     "body": {
-                       "text": "Welcome to your restaurant .Order now and Enjoy !!"
-                     },
-                     "footer": {
-                       "text": "FoodWithFun"
-                     },
-                     "action": {
-                       "catalog_id": "790425562974971",
-                       "sections": [
-                         {
-                           "title": "Veg",
-                           "product_items": [
-                             { "product_retailer_id": "gmwcoxaqbq" },
-                             { "product_retailer_id": "hl5chc29ni" },
-                             { "product_retailer_id":"834nmhc71v"}
+              try {
+                const response = await  axios({
+                  method:"POST",
+                  url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+                  data:
+                  {
+                   "messaging_product": "whatsapp",
+                     "recipient_type": "individual",
+                     "to": from,
+                     "type": "interactive",
+                     "interactive": {
+                       "type": "product_list",
+                       "header":{
+                         "type": "text",
+                         "text": "Catalogue"
+                       },
+                       "body": {
+                         "text": "Welcome to your restaurant .Order now and Enjoy !!"
+                       },
+                       "footer": {
+                         "text": "FoodWithFun"
+                       },
+                       "action": {
+                         "catalog_id": "790425562974971",
+                         "sections": [
+                           {
+                             "title": "Veg",
+                             "product_items": [
+                               { "product_retailer_id": "gmwcoxaqbq" },
+                               { "product_retailer_id": "hl5chc29ni" },
+                               { "product_retailer_id":"834nmhc71v"}
+                              
+                  
+                             ]
+                           },
+                           {
+                             "title": "Non-Veg",
+                             "product_items": [
+                               { "product_retailer_id": "c233nzskgi" }
                             
-                
-                           ]
-                         },
-                         {
-                           "title": "Non-Veg",
-                           "product_items": [
-                             { "product_retailer_id": "c233nzskgi" }
-                          
-                           ]
-                         }
-                       ]
+                             ]
+                           }
+                         ]
+                       }
                      }
-                   }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
-
-            });
+                  },
+                  headers:{
+                      "Content-Type":"application/json"
+                  }
+  
+              });
+                
+              console.log("Response:", response.data);
+            } catch (error) {
+                console.error("Error:", error.message);
+            }
+            
+           
             }
             // else if(message_type == "order") {
             //   console.log("cart");
