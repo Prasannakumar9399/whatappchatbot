@@ -59,14 +59,14 @@ console.log(req);
                console.log("Phone Number ID"+phon_no_id);
                console.log("name "+name);
                console.log("from "+from);
-               console.log("Message Body "+msg_body);
+               console.log("Message Body "+msg_body.body);
 
  
               //  if(body_param == undefined){
               //   console.log("RequestBODY"+req);
               //  }
 
-            if(message_type == "text" && msg_body.body.toLowerCase() == "hi"){
+            if(message_type == "text"){
 
          
               axios({
