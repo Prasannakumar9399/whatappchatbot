@@ -60,7 +60,7 @@ console.log(req);
                console.log("name "+name);
                console.log("from "+from);
                console.log("Message Body "+msg_body.body);
-               console.log(`Boolean : ${message_type == text}`);
+               console.log(`Boolean : ${message_type == "text"}`);
            
               //  if(body_param == undefined){
               //   console.log("RequestBODY"+req);
