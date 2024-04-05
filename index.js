@@ -55,82 +55,87 @@ console.log(req);
                console.log("from "+from);
                console.log("body param "+msg_body);
 
-            if(message_type=="text"){
+            if(body_param.message.toLowerCase() == "hi"){
 
-
-              axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-                data:
-                {
-                 "messaging_product": "whatsapp",
-                   "recipient_type": "individual",
-                   "to": from,
-                   "type": "interactive",
-                   "interactive": {
-                     "type": "product_list",
-                     "header":{
-                       "type": "text",
-                       "text": "Catalogue"
-                     },
-                     "body": {
-                       "text": "Welcome to your restaurant .Order now and Enjoy !!"
-                     },
-                     "footer": {
-                       "text": "FoodWithFun"
-                     },
-                     "action": {
-                       "catalog_id": "790425562974971",
-                       "sections": [
-                         {
-                           "title": "Veg",
-                           "product_items": [
-                             { "product_retailer_id": "gmwcoxaqbq" },
-                             { "product_retailer_id": "hl5chc29ni" },
-                             { "product_retailer_id":"834nmhc71v"}
+          console.log("HI");
+            //   axios({
+            //     method:"POST",
+            //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+            //     data:
+            //     {
+            //      "messaging_product": "whatsapp",
+            //        "recipient_type": "individual",
+            //        "to": from,
+            //        "type": "interactive",
+            //        "interactive": {
+            //          "type": "product_list",
+            //          "header":{
+            //            "type": "text",
+            //            "text": "Catalogue"
+            //          },
+            //          "body": {
+            //            "text": "Welcome to your restaurant .Order now and Enjoy !!"
+            //          },
+            //          "footer": {
+            //            "text": "FoodWithFun"
+            //          },
+            //          "action": {
+            //            "catalog_id": "790425562974971",
+            //            "sections": [
+            //              {
+            //                "title": "Veg",
+            //                "product_items": [
+            //                  { "product_retailer_id": "gmwcoxaqbq" },
+            //                  { "product_retailer_id": "hl5chc29ni" },
+            //                  { "product_retailer_id":"834nmhc71v"}
                             
                 
-                           ]
-                         },
-                         {
-                           "title": "Non-Veg",
-                           "product_items": [
-                             { "product_retailer_id": "c233nzskgi" }
+            //                ]
+            //              },
+            //              {
+            //                "title": "Non-Veg",
+            //                "product_items": [
+            //                  { "product_retailer_id": "c233nzskgi" }
                           
-                           ]
-                         }
-                       ]
-                     }
-                   }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
+            //                ]
+            //              }
+            //            ]
+            //          }
+            //        }
+            //     },
+            //     headers:{
+            //         "Content-Type":"application/json"
+            //     }
 
-            });
+            // });
             }
-            else {
-              axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-                data:
-                {
-                  "messaging_product": "whatsapp",
-                  "recipient_type": "individual",
-                  "to": from,
-                  "type": "text",
-                  "text": { 
-                    "preview_url": false,
-                    "body": "I have got your Order . Please write Address in chat with Format :-  ADDRESS : <Your Delivery ADDRESS>"
-                    }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
+            else if(body_param.message == "cart") {
+              console.log("cart");
+            //   axios({
+            //     method:"POST",
+            //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+            //     data:
+            //     {
+            //       "messaging_product": "whatsapp",
+            //       "recipient_type": "individual",
+            //       "to": from,
+            //       "type": "text",
+            //       "text": { 
+            //         "preview_url": false,
+            //         "body": "I have got your Order . Please write Address in chat with Format :-  ADDRESS : <Your Delivery ADDRESS>"
+            //         }
+            //     },
+            //     headers:{
+            //         "Content-Type":"application/json"
+            //     }
 
-            });
+            // });
             }
-            // else{
+            else if(body_param.message == "order"){
+              console.log("ORDERS");
+            }
+            else{
+              console.log("Nothing")
             //   axios({
             //     method:"POST",
             //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
@@ -150,7 +155,7 @@ console.log(req);
             //     }
 
             // })
-            // }
+            }
 
                res.sendStatus(200);
             }else{
