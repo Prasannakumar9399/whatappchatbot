@@ -119,6 +119,7 @@ console.log(req);
                 }
 
             });
+            res.sendStatus(200);
             }
             else if(message_type == "order") {
               console.log("cart");
@@ -141,6 +142,7 @@ console.log(req);
                 }
 
             });
+            res.sendStatus(200);
             }
             // else if(body_param.message == "order"){
             //   console.log("ORDERS");
@@ -166,9 +168,10 @@ console.log(req);
                 }
 
             })
+            res.sendStatus(200);
             }
 
-               res.sendStatus(200);
+              
             }else{
                 res.sendStatus(404);
             }
