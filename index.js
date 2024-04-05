@@ -210,7 +210,7 @@ console.log(req);
             }
           
             else{
-              console.log("Message Body "+msg_body.body);
+              console.log("Message Body "+msg_body);
               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
