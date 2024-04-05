@@ -39,7 +39,6 @@ console.log(req);
     console.log("Body Param"+JSON.stringify(body_param,null,2));
 
     if(body_param.object){
-        // console.log("inside body param "+body_param.entry[0].changes[0].value.messages[0].type);
         if(body_param.entry && 
             body_param.entry[0].changes && 
             body_param.entry[0].changes[0].value.messages && 
@@ -63,7 +62,6 @@ console.log(req);
              
 
             if(message_type == "text" && msg_body.body != undefined && msg_body.body.toLowerCase() == "hi"){
-              console.log("Message Body "+msg_body.body);
               try {
                 const response = await  axios({
                   method:"POST",
@@ -146,7 +144,7 @@ console.log(req);
                     "text": "Hurry order now before products sell out !"
                   },
                   "action": {
-                    "button": "Click to Pay",
+                    "button": "Choose Payment Option",
                     "sections": [
                       {
                         "title": "Choose Payment Method",
@@ -186,7 +184,6 @@ console.log(req);
         }
             
             else if(message_type == "order") {
-              console.log("cart");
               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
@@ -207,28 +204,48 @@ console.log(req);
 
             });
             }
+            else if(message_type = "interactive"){
+              axios({
+                method:"POST",
+                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+                data:
+                {
+                  "messaging_product": "whatsapp",
+                  "recipient_type": "individual",
+                  "to": from,
+                  "type": "text",
+                  "text": { 
+                    "preview_url": false,
+                    "body": "Payment Integration require Bussiness verification.Will be done later."
+                    }
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
+
+            });
+            }
           
             else{
-              console.log("Message Body "+msg_body);
-            //   axios({
-            //     method:"POST",
-            //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-            //     data:
-            //     {
-            //       "messaging_product": "whatsapp",
-            //       "recipient_type": "individual",
-            //       "to": from,
-            //       "type": "text",
-            //       "text": { 
-            //         "preview_url": false,
-            //         "body": "Your request is not proper . please write 'HI' to start again and for address write ADDRESS : ."
-            //         }
-            //     },
-            //     headers:{
-            //         "Content-Type":"application/json"
-            //     }
+              axios({
+                method:"POST",
+                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+                data:
+                {
+                  "messaging_product": "whatsapp",
+                  "recipient_type": "individual",
+                  "to": from,
+                  "type": "text",
+                  "text": { 
+                    "preview_url": false,
+                    "body": "Your request is not proper . please write 'HI' to start again and for address write ADDRESS : ."
+                    }
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
 
-            // })
+            })
            
             }
 
