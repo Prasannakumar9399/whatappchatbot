@@ -64,7 +64,7 @@ console.log(req);
            
              
 
-            if(message_type == "text"){
+            if(message_type == "text" && msg_body.body != undefined && msg_body.body.toLowerCase() == "hi"){
               try {
                 const response = await  axios({
                   method:"POST",
@@ -123,6 +123,62 @@ console.log(req);
             }
           }
            
+          else if(message_type == "text" && msg_body.body != undefined && msg_body.body.substring(0,7).toLowerCase() == "address"){
+            try {
+              const response = await  axios({
+                method:"POST",
+                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+                data:
+                {
+                  "messaging_product": "whatsapp",
+                "recipient_type": "individual",
+                "to": "917304401513",
+                "type": "interactive",
+                "interactive": {
+                  "type": "list",
+                  "header": {
+                    "type": "text",
+                    "text": "Payment Method"
+                  },
+                  "body": {
+                    "text": "Choose your Payment Method"
+                  },
+                  "footer": {
+                    "text": "Hurry order now before products sell out !"
+                  },
+                  "action": {
+                    "button": "Click to Pay",
+                    "sections": [
+                      {
+                        "title": "Choose Payment Method",
+                        "rows": [
+                          {
+                            "id": "UPI",
+                            "title": "Pay with UPI",
+                            "description": "choose upi for payment"
+                          },
+                          {
+                            "id": "cash",
+                            "title": "Cash on Delivery",
+                            "description": "pay on delivery"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+                headers:{
+                    "Content-Type":"application/json"
+                }
+
+            });
+              
+            console.log("Response:", response.data);
+          } catch (error) {
+              console.error("Error:", error.message);
+          }
+        }
             
             else if(message_type == "order") {
               console.log("cart");
