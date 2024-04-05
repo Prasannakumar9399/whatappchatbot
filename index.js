@@ -46,7 +46,7 @@ console.log(req);
             body_param.entry[0].changes[0].value.messages && 
             body_param.entry[0].changes[0].value.messages[0]  
             ){
-               let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
+               let phon_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let name = body_param.entry[0].changes[0].value.contacts[0].profile.name;
                let from = body_param.entry[0].changes[0].value.messages[0].from; 
                let message_type = body_param.entry[0].changes[0].value.messages[0].type; 
@@ -66,7 +66,7 @@ console.log(req);
               //   console.log("RequestBODY"+req);
               //  }
 
-            if(message_type == "text"){
+            // if(message_type == "text"){
               try {
                 const response = await  axios({
                   method:"POST",
@@ -125,7 +125,7 @@ console.log(req);
             }
             
            
-            }
+            // }
             // else if(message_type == "order") {
             //   console.log("cart");
             //   axios({
