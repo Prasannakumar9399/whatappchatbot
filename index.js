@@ -128,49 +128,49 @@ console.log(req);
                 data:
                 {
                   "messaging_product": "whatsapp",
-                "recipient_type": "individual",
-                "to": "917304401513",
-                "type": "interactive",
-                "interactive": {
-                  "type": "list",
-                  "header": {
-                    "type": "text",
-                    "text": "Payment Method"
-                  },
-                  "body": {
-                    "text": "Choose your Payment Method"
-                  },
-                  "footer": {
-                    "text": "Hurry order now before products sell out !"
-                  },
-                  "action": {
-                    "button": "Choose Payment Option",
-                    "sections": [
-                      {
-                        "title": "Choose Payment Method",
-                        "rows": [
-                          {
-                            "id": "UPI",
-                            "title": "Pay with UPI",
-                            "description": "please choose coorect upi for payment"
-                          },
-                          {
-                            "id": "cash",
-                            "title": "Cash on Delivery",
-                            "description": "please carrry cash for pay on delivery"
-                          },
-                          {
-                            "id": "whatapp",
-                            "title": "Pay on WhatsApp",
-                            "description": "enable whatsapp upi topay on whatapp"
-                          }
-
-                        ]
-                      }
-                    ]
+                  "recipient_type": "individual",
+                  "to": "917304401513",
+                  "type": "interactive",
+                  "interactive": {
+                    "type": "list",
+                    "header": {
+                      "type": "text",
+                      "text": "Payment Options"
+                    },
+                    "body": {
+                      "text": "Choose your Payment Method wisely !!"
+                    },
+                    "footer": {
+                      "text": "Hurry order now before products sell out !"
+                    },
+                    "action": {
+                      "button": "Pay",
+                      "sections": [
+                        {
+                          "title": "Select Payment Method",
+                          "rows": [
+                            {
+                              "id": "UPI",
+                              "title": "Pay with UPI",
+                              "description": "please choose correct upi for payment"
+                            },
+                            {
+                              "id": "cash",
+                              "title": "Cash on Delivery",
+                              "description": "please carrry cash for pay on delivery"
+                            },
+                            {
+                              "id": "whatapp",
+                              "title": "Pay on WhatsApp",
+                              "description": "enable whatsapp upi topay on whatapp"
+                            }
+  
+                          ]
+                        }
+                      ]
+                    }
                   }
-                }
-              },
+                },
                 headers:{
                     "Content-Type":"application/json"
                 }
@@ -204,27 +204,27 @@ console.log(req);
 
             });
             }
-            // else if(message_type = "interactive"){
-            //   axios({
-            //     method:"POST",
-            //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-            //     data:
-            //     {
-            //       "messaging_product": "whatsapp",
-            //       "recipient_type": "individual",
-            //       "to": from,
-            //       "type": "text",
-            //       "text": { 
-            //         "preview_url": false,
-            //         "body": "Payment Integration require Bussiness verification.Will be done later."
-            //         }
-            //     },
-            //     headers:{
-            //         "Content-Type":"application/json"
-            //     }
+            else if(message_type = "interactive"){
+              axios({
+                method:"POST",
+                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+                data:
+                {
+                  "messaging_product": "whatsapp",
+                  "recipient_type": "individual",
+                  "to": from,
+                  "type": "text",
+                  "text": { 
+                    "preview_url": false,
+                    "body": "Payment Integration require Bussiness verification.Will be done later."
+                    }
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
 
-            // });
-            // }
+            });
+            }
           
             else{
               axios({
@@ -238,7 +238,7 @@ console.log(req);
                   "type": "text",
                   "text": { 
                     "preview_url": false,
-                    "body": "Your request is not proper . please write 'HI' to start again and for address write ADDRESS : ."
+                    "body": "Your request is not proper . please write 'HI' to Start.."
                     }
                 },
                 headers:{
