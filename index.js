@@ -10,7 +10,6 @@ const token=process.env.TOKEN;
 const mytoken=process.env.MYTOKEN;//prasath_token
 
 app.listen(process.env.PORT,()=>{
-    console.log(process.env.MYTOKEN);
     console.log(`webhook is listening `);
 });
 
@@ -211,25 +210,25 @@ console.log(req);
           
             else{
               console.log("Message Body "+msg_body);
-              axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-                data:
-                {
-                  "messaging_product": "whatsapp",
-                  "recipient_type": "individual",
-                  "to": from,
-                  "type": "text",
-                  "text": { 
-                    "preview_url": false,
-                    "body": "Your request is not proper . please write 'HI' to start again and for address write ADDRESS : ."
-                    }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
+            //   axios({
+            //     method:"POST",
+            //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+            //     data:
+            //     {
+            //       "messaging_product": "whatsapp",
+            //       "recipient_type": "individual",
+            //       "to": from,
+            //       "type": "text",
+            //       "text": { 
+            //         "preview_url": false,
+            //         "body": "Your request is not proper . please write 'HI' to start again and for address write ADDRESS : ."
+            //         }
+            //     },
+            //     headers:{
+            //         "Content-Type":"application/json"
+            //     }
 
-            })
+            // })
            
             }
 
