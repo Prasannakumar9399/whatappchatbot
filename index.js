@@ -37,7 +37,7 @@ console.log(req);
     let body_param=req.body;
 
     console.log("Body Param"+JSON.stringify(body_param,null,2));
-    console.log("ONLY BODY"+body_param);
+    console.log("ONLY BODY"+JSON.stringify(body_param));
 
     if(body_param.object){
         // console.log("inside body param "+body_param.entry[0].changes[0].value.messages[0].type);
@@ -46,15 +46,19 @@ console.log(req);
             body_param.entry[0].changes[0].value.messages && 
             body_param.entry[0].changes[0].value.messages[0]  
             ){
-              //  let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
+               let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
+               let name = body_param.entry[0].changes[0].contact.profile.name;
               //  let from = body_param.entry[0].changes[0].value.messages[0].from; 
-              //  let message_type = body_param.entry[0].changes[0].value.messages[0].type; 
+               let message_type = body_param.entry[0].changes[0].messages[0].type; 
               //  let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
 
               //  console.log(`Message Type :${message_type}`);
               //  console.log("phone number "+phon_no_id);
               //  console.log("from "+from);
-               console.log("body param "+msg_body);
+               console.log("message Type "+msg_type);
+               console.log("Phone Number ID"+phon_no_id);
+               console.log("name "+name);
+
  
               //  if(body_param == undefined){
               //   console.log("RequestBODY"+req);
