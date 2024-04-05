@@ -112,70 +112,14 @@ console.log(req);
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
                 data:
                 {
-                 "messaging_product": "whatsapp",
-                   "recipient_type": "individual",
-                   "to": from,
-                   "type": "contacts",
-                   "contacts": [{
-                       "addresses": [{
-                           "street": "STREET",
-                           "city": "CITY",
-                           "state": "STATE",
-                           "zip": "ZIP",
-                           "country": "COUNTRY",
-                           "country_code": "COUNTRY_CODE",
-                           "type": "HOME"
-                         },
-                         {
-                           "street": "STREET",
-                           "city": "CITY",
-                           "state": "STATE",
-                           "zip": "ZIP",
-                           "country": "COUNTRY",
-                           "country_code": "COUNTRY_CODE",
-                           "type": "WORK"
-                         }],
-                       "birthday": "YEAR_MONTH_DAY",
-                       "emails": [{
-                           "email": "EMAIL",
-                           "type": "WORK"
-                         },
-                         {
-                           "email": "EMAIL",
-                           "type": "HOME"
-                         }],
-                       "name": {
-                         "formatted_name": "NAME",
-                         "first_name": "FIRST_NAME",
-                         "last_name": "LAST_NAME",
-                         "middle_name": "MIDDLE_NAME",
-                         "suffix": "SUFFIX",
-                         "prefix": "PREFIX"
-                       },
-                       "org": {
-                         "company": "COMPANY",
-                         "department": "DEPARTMENT",
-                         "title": "TITLE"
-                       },
-                       "phones": [{
-                           "phone": "PHONE_NUMBER",
-                           "type": "HOME"
-                         },
-                         {
-                           "phone": "PHONE_NUMBER",
-                           "type": "WORK",
-                           "wa_id": "PHONE_OR_WA_ID"
-                         }],
-                       "urls": [{
-                           "url": "URL",
-                           "type": "WORK"
-                         },
-                         {
-                           "url": "URL",
-                           "type": "HOME"
-                         }]
-                     }]
-                 
+                  "messaging_product": "whatsapp",
+                  "recipient_type": "individual",
+                  "to": from,
+                  "type": "text",
+                  "text": { // the text object
+                    "preview_url": false,
+                    "body": "I have got your Order . Please write Address in chat with Format :-  ADDRESS : <Your Delivery ADDRESS>"
+                    }
                 },
                 headers:{
                     "Content-Type":"application/json"
