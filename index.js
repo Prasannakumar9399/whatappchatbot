@@ -54,6 +54,10 @@ console.log(req);
                console.log("phone number "+phon_no_id);
                console.log("from "+from);
                console.log("body param "+msg_body);
+ 
+               if(body_param == undefined){
+                console.log("Request"+req);
+               }
 
             if(body_param.message.toLowerCase() == "hi"){
 
