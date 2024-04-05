@@ -123,7 +123,7 @@ console.log(req);
             }
           }
            
-            }
+            
             else if(message_type == "order") {
               console.log("cart");
               axios({
@@ -172,13 +172,12 @@ console.log(req);
             }
 
             res.sendStatus(200);
+          }
             }else{
                 res.sendStatus(404);
             }
 
-    }
-
-  ,);
+    });
 
 app.get("/",(req,res)=>{
     res.status(200).send("hello this is webhook setup");
