@@ -56,7 +56,7 @@ console.log(req);
 
             if(message_type=="text"){
 
-              
+
               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
@@ -118,7 +118,7 @@ console.log(req);
                   "recipient_type": "individual",
                   "to": from,
                   "type": "text",
-                  "text": { // the text object
+                  "text": { 
                     "preview_url": false,
                     "body": "I have got your Order . Please write Address in chat with Format :-  ADDRESS : <Your Delivery ADDRESS>"
                     }
