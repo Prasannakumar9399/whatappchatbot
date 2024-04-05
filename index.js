@@ -55,6 +55,8 @@ console.log(req);
                console.log("body param "+msg_body);
 
             if(message_type=="text"){
+
+              
               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
