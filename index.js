@@ -109,27 +109,27 @@ console.log(req);
 
             });
             }
-            if(message_type=="order"){
-              axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-                data:
-                {
-                  "messaging_product": "whatsapp",
-                  "recipient_type": "individual",
-                  "to": from,
-                  "type": "text",
-                  "text": { 
-                    "preview_url": false,
-                    "body": "I have got your Order . Please write Address in chat with Format :-  ADDRESS : <Your Delivery ADDRESS>"
-                    }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
+            // if(message_type=="order"){
+            //   axios({
+            //     method:"POST",
+            //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+            //     data:
+            //     {
+            //       "messaging_product": "whatsapp",
+            //       "recipient_type": "individual",
+            //       "to": from,
+            //       "type": "text",
+            //       "text": { 
+            //         "preview_url": false,
+            //         "body": "I have got your Order . Please write Address in chat with Format :-  ADDRESS : <Your Delivery ADDRESS>"
+            //         }
+            //     },
+            //     headers:{
+            //         "Content-Type":"application/json"
+            //     }
 
-            });
-            }
+            // });
+            // }
 
                res.sendStatus(200);
             }else{
