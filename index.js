@@ -47,7 +47,7 @@ console.log(req);
             body_param.entry[0].changes[0].value.messages[0]  
             ){
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
-               let name = body_param.entry[0].changes[0].contacts[0].profile.name;
+               let name = body_param.entry[0].changes[0].value.contacts[0].profile.name;
               //  let from = body_param.entry[0].changes[0].value.messages[0].from; 
                let message_type = body_param.entry[0].changes[0].messages[0].type; 
               //  let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
