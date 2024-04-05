@@ -63,7 +63,7 @@ console.log(req);
            
              
 
-            // if(message_type == "text"){
+            if(message_type == "text"){
               try {
                 const response = await  axios({
                   method:"POST",
@@ -120,7 +120,7 @@ console.log(req);
             } catch (error) {
                 console.error("Error:", error.message);
             }
-            
+          }
            
             }
             else if(message_type == "order") {
