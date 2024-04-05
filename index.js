@@ -36,7 +36,8 @@ app.post("/webhook",(req,res)=>{ //i want some
 console.log(req);
     let body_param=req.body;
 
-    console.log(JSON.stringify(body_param,null,2));
+    console.log("Body Param"+JSON.stringify(body_param,null,2));
+    console.log("ONLY BODY"+body_param);
 
     if(body_param.object){
         // console.log("inside body param "+body_param.entry[0].changes[0].value.messages[0].type);
@@ -45,21 +46,21 @@ console.log(req);
             body_param.entry[0].changes[0].value.messages && 
             body_param.entry[0].changes[0].value.messages[0]  
             ){
-               let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
-               let from = body_param.entry[0].changes[0].value.messages[0].from; 
-               let message_type = body_param.entry[0].changes[0].value.messages[0].type; 
-               let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+              //  let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
+              //  let from = body_param.entry[0].changes[0].value.messages[0].from; 
+              //  let message_type = body_param.entry[0].changes[0].value.messages[0].type; 
+              //  let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
 
-               console.log(`Message Type :${message_type}`);
-               console.log("phone number "+phon_no_id);
-               console.log("from "+from);
+              //  console.log(`Message Type :${message_type}`);
+              //  console.log("phone number "+phon_no_id);
+              //  console.log("from "+from);
                console.log("body param "+msg_body);
  
-               if(body_param == undefined){
-                console.log("Request"+req);
-               }
+              //  if(body_param == undefined){
+              //   console.log("RequestBODY"+req);
+              //  }
 
-            if(body_param.message.toLowerCase() == "hi"){
+            // if(body_param.message.toLowerCase() == "hi"){
 
           console.log("HI");
             //   axios({
@@ -112,9 +113,9 @@ console.log(req);
             //     }
 
             // });
-            }
-            else if(body_param.message == "cart") {
-              console.log("cart");
+            // }
+            // else if(body_param.message == "cart") {
+            //   console.log("cart");
             //   axios({
             //     method:"POST",
             //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
@@ -134,12 +135,12 @@ console.log(req);
             //     }
 
             // });
-            }
-            else if(body_param.message == "order"){
-              console.log("ORDERS");
-            }
-            else{
-              console.log("Nothing")
+            // }
+            // else if(body_param.message == "order"){
+            //   console.log("ORDERS");
+            // }
+            // else{
+            //   console.log("Nothing")
             //   axios({
             //     method:"POST",
             //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
@@ -168,7 +169,7 @@ console.log(req);
 
     }
 
-});
+,);
 
 app.get("/",(req,res)=>{
     res.status(200).send("hello this is webhook setup");
