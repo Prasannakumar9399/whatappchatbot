@@ -52,15 +52,15 @@ console.log(req);
                let message_type = body_param.entry[0].changes[0].value.messages[0].type; 
                let msg_body = body_param.entry[0].changes[0].value.messages[0].text;
 
-              //  console.log(`Message Type :${message_type}`);
-              //  console.log("phone number "+phon_no_id);
-              //  console.log("from "+from);
-              //  console.log("message Type "+message_type);
-              //  console.log("Phone Number ID"+phon_no_id);
-              //  console.log("name "+name);
-              //  console.log("from "+from);
-              //  console.log("Message Body "+msg_body.body);
-              //  console.log(`Boolean : ${message_type == "text"}`);
+               console.log(`Message Type :${message_type}`);
+               console.log("phone number "+phon_no_id);
+               console.log("from "+from);
+               console.log("message Type "+message_type);
+               console.log("Phone Number ID"+phon_no_id);
+               console.log("name "+name);
+               console.log("from "+from);
+               console.log("Message Body "+msg_body.body);
+               console.log(`Boolean : ${message_type == "text"}`);
            
              
 
@@ -155,13 +155,19 @@ console.log(req);
                           {
                             "id": "UPI",
                             "title": "Pay with UPI",
-                            "description": "choose upi for payment"
+                            "description": "please choose coorect upi for payment"
                           },
                           {
                             "id": "cash",
                             "title": "Cash on Delivery",
-                            "description": "pay on delivery"
+                            "description": "please carrry cash for pay on delivery"
+                          },
+                          {
+                            "id": "whatapp",
+                            "title": "Pay on WhatsApp",
+                            "description": "enable whatsapp upi topay on whatapp"
                           }
+
                         ]
                       }
                     ]
@@ -204,7 +210,6 @@ console.log(req);
             }
           
             else{
-              console.log("Nothing")
               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
@@ -216,7 +221,7 @@ console.log(req);
                   "type": "text",
                   "text": { 
                     "preview_url": false,
-                    "body": "Your request is not proper please writer 'HI' to start again."
+                    "body": "Your request is not proper . please write 'HI' to start again and for address write ADDRESS : ."
                     }
                 },
                 headers:{
