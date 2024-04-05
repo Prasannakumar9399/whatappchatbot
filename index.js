@@ -10,7 +10,7 @@ const mytoken=process.env.MYTOKEN;//prasath_token
 
 app.listen(process.env.PORT,()=>{
     console.log(process.env.MYTOKEN);
-    console.log(`webhook is listening at port ${process.env.PORT}`);
+    console.log(`webhook is listening `);
 });
 
 //to verify the callback url from dashboard side - cloud api side
@@ -37,7 +37,6 @@ console.log(req);
     let body_param=req.body;
 
     console.log("Body Param"+JSON.stringify(body_param,null,2));
-    console.log("ONLY BODY"+JSON.stringify(body_param));
 
     if(body_param.object){
         // console.log("inside body param "+body_param.entry[0].changes[0].value.messages[0].type);
@@ -55,16 +54,14 @@ console.log(req);
               //  console.log(`Message Type :${message_type}`);
               //  console.log("phone number "+phon_no_id);
               //  console.log("from "+from);
-               console.log("message Type "+message_type);
-               console.log("Phone Number ID"+phon_no_id);
-               console.log("name "+name);
-               console.log("from "+from);
-               console.log("Message Body "+msg_body.body);
-               console.log(`Boolean : ${message_type == "text"}`);
+              //  console.log("message Type "+message_type);
+              //  console.log("Phone Number ID"+phon_no_id);
+              //  console.log("name "+name);
+              //  console.log("from "+from);
+              //  console.log("Message Body "+msg_body.body);
+              //  console.log(`Boolean : ${message_type == "text"}`);
            
-              //  if(body_param == undefined){
-              //   console.log("RequestBODY"+req);
-              //  }
+             
 
             // if(message_type == "text"){
               try {
