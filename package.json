@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start":"node index.js"
     },
-  "author": "Prasath from PMS",
+  "author": "Prasanakumar from Invorion",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
