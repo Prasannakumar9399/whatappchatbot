@@ -67,8 +67,6 @@ console.log(req);
               //  }
 
             if(message_type == "text"){
-
-         
               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
@@ -119,7 +117,6 @@ console.log(req);
                 }
 
             });
-            res.sendStatus(200);
             }
             else if(message_type == "order") {
               console.log("cart");
@@ -142,11 +139,8 @@ console.log(req);
                 }
 
             });
-            res.sendStatus(200);
             }
-            // else if(body_param.message == "order"){
-            //   console.log("ORDERS");
-            // }
+          
             else{
               console.log("Nothing")
               axios({
@@ -168,10 +162,10 @@ console.log(req);
                 }
 
             })
-            res.sendStatus(200);
+           
             }
 
-              
+            res.sendStatus(200);
             }else{
                 res.sendStatus(404);
             }
