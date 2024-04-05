@@ -50,7 +50,7 @@ console.log(req);
                let name = body_param.entry[0].changes[0].value.contacts[0].profile.name;
                let from = body_param.entry[0].changes[0].value.messages[0].from; 
                let message_type = body_param.entry[0].changes[0].value.messages[0].type; 
-               let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+               let msg_body = body_param.entry[0].changes[0].value.messages[0].text;
 
               //  console.log(`Message Type :${message_type}`);
               //  console.log("phone number "+phon_no_id);
