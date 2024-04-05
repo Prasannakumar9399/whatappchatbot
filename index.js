@@ -48,9 +48,9 @@ console.log(req);
             ){
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let name = body_param.entry[0].changes[0].value.contacts[0].profile.name;
-              //  let from = body_param.entry[0].changes[0].value.messages[0].from; 
-               let message_type = body_param.entry[0].changes[0].messages[0].type; 
-              //  let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+               let from = body_param.entry[0].changes[0].value.messages[0].from; 
+               let message_type = body_param.entry[0].changes[0].value.messages[0].type; 
+               let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
 
               //  console.log(`Message Type :${message_type}`);
               //  console.log("phone number "+phon_no_id);
@@ -58,6 +58,8 @@ console.log(req);
                console.log("message Type "+message_type);
                console.log("Phone Number ID"+phon_no_id);
                console.log("name "+name);
+               console.log("from "+from);
+               console.log("Message Body "+msg_body);
 
  
               //  if(body_param == undefined){
