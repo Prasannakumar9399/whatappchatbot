@@ -50,6 +50,7 @@ console.log(req);
                let message_type = body_param.entry[0].changes[0].value.messages[0].type; 
                let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
 
+               console.log(`Message Type :${message_type}`);
                console.log("phone number "+phon_no_id);
                console.log("from "+from);
                console.log("body param "+msg_body);
