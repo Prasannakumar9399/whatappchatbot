@@ -81,7 +81,7 @@ console.log(req);
                          "text": "Catalogue"
                        },
                        "body": {
-                         "text": "Welcome to your restaurant .Order now and Enjoy !!"
+                         "text": `Hello ${name} Welcome to your restaurant .Order now and Enjoy !!`
                        },
                        "footer": {
                          "text": "FoodWithFun"
