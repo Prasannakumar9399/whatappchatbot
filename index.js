@@ -59,12 +59,12 @@ console.log(req);
                console.log("Phone Number ID"+phon_no_id);
                console.log("name "+name);
                console.log("from "+from);
-               console.log("Message Body "+msg_body.body);
                console.log(`Boolean : ${message_type == "text"}`);
            
              
 
             if(message_type == "text" && msg_body.body != undefined && msg_body.body.toLowerCase() == "hi"){
+              console.log("Message Body "+msg_body.body);
               try {
                 const response = await  axios({
                   method:"POST",
@@ -210,6 +210,7 @@ console.log(req);
             }
           
             else{
+              console.log("Message Body "+msg_body.body);
               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
