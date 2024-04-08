@@ -238,7 +238,7 @@ console.log(req);
                   "type": "text",
                   "text": { 
                     "preview_url": false,
-                    "body": "Your request is not proper . please write 'HI' to Start.."
+                    "body": "Please write 'HI' to Start.."
                     }
                 },
                 headers:{
