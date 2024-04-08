@@ -204,27 +204,27 @@ console.log(req);
 
             });
             }
-            else if(message_type = "interactive"){
-              axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-                data:
-                {
-                  "messaging_product": "whatsapp",
-                  "recipient_type": "individual",
-                  "to": from,
-                  "type": "text",
-                  "text": { 
-                    "preview_url": false,
-                    "body": "Payment Integration require Bussiness verification.Will be done later."
-                    }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
+            // else if(message_type = "interactive"){
+            //   axios({
+            //     method:"POST",
+            //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+            //     data:
+            //     {
+            //       "messaging_product": "whatsapp",
+            //       "recipient_type": "individual",
+            //       "to": from,
+            //       "type": "text",
+            //       "text": { 
+            //         "preview_url": false,
+            //         "body": "Payment Integration require Bussiness verification.Will be done later."
+            //         }
+            //     },
+            //     headers:{
+            //         "Content-Type":"application/json"
+            //     }
 
-            });
-            }
+            // });
+            // }
           
             else{
               axios({
