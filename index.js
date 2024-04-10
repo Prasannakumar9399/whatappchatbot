@@ -220,7 +220,7 @@ console.log(req);
                   "type": "text",
                   "text": { 
                     "preview_url": false,
-                    "body": "Thank you.Your Order has been successfully Placed .."
+                    "body": `Congratulations ${name} ! 🎉 Your order is confirmed and on its way to deliciousness! 🍔🍕 Expect your mouth-watering treats to arrive soon.  😋 #HappyOrdering`
                     }
                 },
                 headers:{
