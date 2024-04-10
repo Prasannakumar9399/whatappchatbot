@@ -208,7 +208,7 @@ console.log(req);
 
             });
             }
-            else if(msg_body.body.toLowerCase().substring(0,3) == "pay" || msg_body.body.toLowerCase().substring(0,4) == "cash"){
+            else if(message_type == "interactive" && body_param.entry[0].changes[0].value.messages[0].interactive['type'] == "list_reply"){
               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
