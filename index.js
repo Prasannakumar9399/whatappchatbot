@@ -32,7 +32,7 @@ app.get("/webhook",(req,res)=>{
 
 });
 
-app.post("/webhook",async (req,res)=>{ //i want some 
+app.post("/webhook",async (req,res)=>{ 
 console.log(req);
     let body_param=req.body;
 
@@ -58,6 +58,8 @@ console.log(req);
                console.log("name "+name);
                console.log("from "+from);
                console.log(`Boolean : ${message_type == "text"}`);
+               if(msg_body.body && msg_body.body!= undefined)
+               console.log(`Message Body.:- ${msg_body.body}`);
            
              
 
