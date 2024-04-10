@@ -58,7 +58,7 @@ console.log(req);
                console.log("name "+name);
                console.log("from "+from);
                console.log(`Boolean : ${message_type == "text"}`);
-               if(msg_body.body && msg_body.body!= undefined)
+               if(msg_body != undefined)
                console.log(`Message Body.:- ${msg_body.body}`);
            
              
