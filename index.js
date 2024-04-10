@@ -256,31 +256,31 @@ console.log(req);
 
             res.sendStatus(200);
           }
-          else{
-            let phon_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
+          // else{
+          //   let phon_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
 
-               axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-                data:
-                {
-                  "messaging_product": "whatsapp",
-                  "recipient_type": "individual",
-                  "to": "917304401513",
-                  "type": "text",
-                  "text": { 
-                    "preview_url": false,
-                    "body": "Thank you.Your Order has been successfully Placed .."
-                    }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
+          //      axios({
+          //       method:"POST",
+          //       url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+          //       data:
+          //       {
+          //         "messaging_product": "whatsapp",
+          //         "recipient_type": "individual",
+          //         "to": "917304401513",
+          //         "type": "text",
+          //         "text": { 
+          //           "preview_url": false,
+          //           "body": "Thank you.Your Order has been successfully Placed .."
+          //           }
+          //       },
+          //       headers:{
+          //           "Content-Type":"application/json"
+          //       }
 
-            });
-            res.sendStatus(200);
+          //   });
+          //   res.sendStatus(200);
 
-          }
+          // }
             }else{
                 res.sendStatus(404);
             }
