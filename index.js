@@ -231,7 +231,6 @@ console.log(req);
             }
           
             else{
-              let phon_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
               
               axios({
                 method:"POST",
@@ -258,6 +257,8 @@ console.log(req);
             res.sendStatus(200);
           }
           else{
+            let phon_no_id = body_param.entry[0].changes[0].value.metadata.phone_number_id;
+
                axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
