@@ -255,28 +255,29 @@ console.log(req);
 
             res.sendStatus(200);
           }
-          // else{
-          //      axios({
-          //       method:"POST",
-          //       url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-          //       data:
-          //       {
-          //         "messaging_product": "whatsapp",
-          //         "recipient_type": "individual",
-          //         "to": from,
-          //         "type": "text",
-          //         "text": { 
-          //           "preview_url": false,
-          //           "body": "Thank you.Your Order has been successfully Placed .."
-          //           }
-          //       },
-          //       headers:{
-          //           "Content-Type":"application/json"
-          //       }
+          else{
+               axios({
+                method:"POST",
+                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+                data:
+                {
+                  "messaging_product": "whatsapp",
+                  "recipient_type": "individual",
+                  "to": from,
+                  "type": "text",
+                  "text": { 
+                    "preview_url": false,
+                    "body": "Thank you.Your Order has been successfully Placed .."
+                    }
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
 
-          //   });
-          
-          // }
+            });
+            res.sendStatus(200);
+
+          }
             }else{
                 res.sendStatus(404);
             }
