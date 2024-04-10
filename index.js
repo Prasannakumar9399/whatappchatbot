@@ -38,6 +38,8 @@ console.log(req);
 
     console.log("Body Param"+JSON.stringify(body_param,null,2));
 
+    
+
     if(body_param.object){
         if(body_param.entry && 
             body_param.entry[0].changes && 
@@ -206,27 +208,27 @@ console.log(req);
 
             });
             }
-            // else if(message_type = "interactive"){
-            //   axios({
-            //     method:"POST",
-            //     url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
-            //     data:
-            //     {
-            //       "messaging_product": "whatsapp",
-            //       "recipient_type": "individual",
-            //       "to": from,
-            //       "type": "text",
-            //       "text": { 
-            //         "preview_url": false,
-            //         "body": "Payment Integration require Bussiness verification.Will be done later."
-            //         }
-            //     },
-            //     headers:{
-            //         "Content-Type":"application/json"
-            //     }
+            else if(msg_body.body.toLowerCase().substring(0,3) == "pay" || msg_body.body.toLowerCase().substring(0,4) == "cash"){
+              axios({
+                method:"POST",
+                url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+                data:
+                {
+                  "messaging_product": "whatsapp",
+                  "recipient_type": "individual",
+                  "to": from,
+                  "type": "text",
+                  "text": { 
+                    "preview_url": false,
+                    "body": "Thank you.Your Order has been successfully Placed .."
+                    }
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
 
-            // });
-            // }
+            });
+            }
           
             else{
               axios({
@@ -253,6 +255,28 @@ console.log(req);
 
             res.sendStatus(200);
           }
+          // else{
+          //      axios({
+          //       method:"POST",
+          //       url:"https://graph.facebook.com/v18.0/"+phon_no_id+"/messages?access_token="+token,
+          //       data:
+          //       {
+          //         "messaging_product": "whatsapp",
+          //         "recipient_type": "individual",
+          //         "to": from,
+          //         "type": "text",
+          //         "text": { 
+          //           "preview_url": false,
+          //           "body": "Thank you.Your Order has been successfully Placed .."
+          //           }
+          //       },
+          //       headers:{
+          //           "Content-Type":"application/json"
+          //       }
+
+          //   });
+          
+          // }
             }else{
                 res.sendStatus(404);
             }
